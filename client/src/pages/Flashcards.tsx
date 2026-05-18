@@ -19,6 +19,23 @@ import { XP_REWARDS } from '@/lib/gamification';
 import { toast } from 'sonner';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 
+function calculateReviewStats(reviews: FlashcardReview[]) {
+  const now = Date.now();
+  let newCards = 0;
+  let readyForReview = 0;
+  let learning = 0;
+  let review = 0;
+
+  for (const r of reviews) {
+    if (r.repetitions === 0) newCards++;
+    else if (r.nextReview <= now) readyForReview++;
+    else if (r.repetitions < 3) learning++;
+    else review++;
+  }
+
+  return { newCards, readyForReview, learning, review };
+}
+
 export default function Flashcards() {
   const { user, addXP, updateUserStats, incrementStreak } = useUser();
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -319,21 +336,4 @@ export default function Flashcards() {
       </div>
     </MainLayout>
   );
-}
-
-function calculateReviewStats(reviews: FlashcardReview[]) {
-  const now = Date.now();
-  let newCards = 0;
-  let readyForReview = 0;
-  let learning = 0;
-  let review = 0;
-
-  for (const r of reviews) {
-    if (r.repetitions === 0) newCards++;
-    else if (r.nextReview <= now) readyForReview++;
-    else if (r.repetitions < 3) learning++;
-    else review++;
-  }
-
-  return { newCards, readyForReview, learning, review };
 }
