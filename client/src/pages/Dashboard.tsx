@@ -7,7 +7,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { getLevelConfig, calculateLevelProgress } from '@/lib/gamification';
-import { Link } from 'wouter';
+
 
 export default function Dashboard() {
   const { user } = useUser();
@@ -117,50 +117,47 @@ export default function Dashboard() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Link href="/flashcards">
-            <a>
-              <Card className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <div className="text-4xl mb-3">📇</div>
-                <h3 className="font-semibold text-foreground mb-1">Flashcards</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Revise com repetição espaçada
-                </p>
-                <Button variant="outline" size="sm" className="w-full">
-                  Começar
-                </Button>
-              </Card>
-            </a>
-          </Link>
+          <Card
+            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full"
+            onClick={() => (window.location.href = '/flashcards')}
+          >
+            <div className="text-4xl mb-3">📇</div>
+            <h3 className="font-semibold text-foreground mb-1">Flashcards</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Revise com repetição espaçada
+            </p>
+            <Button variant="outline" size="sm" className="w-full">
+              Começar
+            </Button>
+          </Card>
 
-          <Link href="/quizzes">
-            <a>
-              <Card className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <div className="text-4xl mb-3">📝</div>
-                <h3 className="font-semibold text-foreground mb-1">Quizzes</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Teste seu conhecimento
-                </p>
-                <Button variant="outline" size="sm" className="w-full">
-                  Começar
-                </Button>
-              </Card>
-            </a>
-          </Link>
+          <Card
+            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full"
+            onClick={() => (window.location.href = '/quizzes')}
+          >
+            <div className="text-4xl mb-3">📝</div>
+            <h3 className="font-semibold text-foreground mb-1">Quizzes</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Teste seu conhecimento
+            </p>
+            <Button variant="outline" size="sm" className="w-full">
+              Começar
+            </Button>
+          </Card>
 
-          <Link href="/ranking">
-            <a>
-              <Card className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <div className="text-4xl mb-3">🏆</div>
-                <h3 className="font-semibold text-foreground mb-1">Ranking</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Veja sua posição
-                </p>
-                <Button variant="outline" size="sm" className="w-full">
-                  Ver Ranking
-                </Button>
-              </Card>
-            </a>
-          </Link>
+          <Card
+            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full"
+            onClick={() => (window.location.href = '/ranking')}
+          >
+            <div className="text-4xl mb-3">🏆</div>
+            <h3 className="font-semibold text-foreground mb-1">Ranking</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Veja sua posição
+            </p>
+            <Button variant="outline" size="sm" className="w-full">
+              Ver Ranking
+            </Button>
+          </Card>
         </div>
       </div>
     </MainLayout>
