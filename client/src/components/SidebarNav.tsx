@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'wouter';
 import { cn } from '@/lib/utils';
 import { categories } from '@/lib/educationalContent';
 
@@ -100,19 +99,20 @@ interface NavLinkProps {
 
 function NavLink({ href, isActive, icon, label, onNavigate }: NavLinkProps) {
   return (
-    <Link href={href}>
-      <a
-        onClick={onNavigate}
-        className={cn(
-          'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200',
-          isActive
-            ? 'bg-sidebar-primary text-sidebar-primary-foreground shadow-sm'
-            : 'text-sidebar-foreground hover:bg-sidebar-accent/10 hover:text-sidebar-primary',
-        )}
-      >
-        <span className="text-lg">{icon}</span>
-        <span>{label}</span>
-      </a>
-    </Link>
+    <button
+      onClick={() => {
+        onNavigate?.();
+        window.location.href = href;
+      }}
+      className={cn(
+        'w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 border-0 bg-transparent cursor-pointer',
+        isActive
+          ? 'bg-sidebar-primary text-sidebar-primary-foreground shadow-sm'
+          : 'text-sidebar-foreground hover:bg-sidebar-accent/10 hover:text-sidebar-primary',
+      )}
+    >
+      <span className="text-lg">{icon}</span>
+      <span>{label}</span>
+    </button>
   );
 }
