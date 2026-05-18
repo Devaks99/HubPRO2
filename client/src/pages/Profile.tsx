@@ -52,7 +52,7 @@ export default function Profile() {
                 </span>
               </div>
               <h2 className="text-2xl font-bold text-foreground mb-1">{user.username}</h2>
-              <p className="text-muted-foreground">Membro desde {new Date(user.createdAt).toLocaleDateString('pt-BR')}</p>
+              <p className="text-muted-foreground">Estudando ADVPL com Protheus Master</p>
             </div>
             <div className="text-right">
               <div className="text-4xl font-bold text-primary mb-1">{user.level}</div>
