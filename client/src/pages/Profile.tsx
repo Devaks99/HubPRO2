@@ -9,14 +9,37 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getLevelConfig } from '@/lib/gamification';
-import { Calendar, Award, Zap, Target } from 'lucide-react';
+import {
+  Calendar,
+  Award,
+  Zap,
+  Target,
+  User2,
+  Pencil,
+  Image as ImageIcon,
+  Sparkles,
+  Shield,
+  BookOpen,
+} from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export default function Profile() {
-  const { user, logout } = useUser();
+  const { user: currentUser, logout, getUserById, updateUserProfile } = useUser();
+  const params = (require('wouter').useParams as any)() as { userId?: string };
+  const targetUserId = params?.userId;
 
-  if (!user) {
+  if (!currentUser) {
     return null;
   }
+
+  const isOwner = !targetUserId || targetUserId === currentUser.userId;
+
+  const targetUser = targetUserId ? getUserById(targetUserId) : null;
+  const user = targetUser ?? currentUser;
 
   const levelConfig = getLevelConfig(user.level);
   const nextLevelXP = user.level === 8 ? 9999 : [0, 100, 250, 450, 700, 1000, 1350, 1750][user.level];
@@ -32,13 +55,14 @@ export default function Profile() {
 
   return (
     <MainLayout
-      sidebar={<SidebarNav currentPath="/profile" />}
+      sidebar={<SidebarNav currentPath={targetUserId ? `/users/${targetUserId}` : '/profile'} />}
+
       header={<HeaderUser />}
     >
       <div className="p-6 max-w-4xl mx-auto">
         {/* Profile Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Meu Perfil</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">{isOwner ? 'Meu Perfil' : 'Perfil do usuário'}</h1>
           <p className="text-muted-foreground">Visualize suas estatísticas e progresso</p>
         </div>
 

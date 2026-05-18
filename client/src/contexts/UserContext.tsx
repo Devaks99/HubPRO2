@@ -4,7 +4,12 @@ import { UserStats, createInitialUserStats } from '@/lib/gamification';
 interface UserContextType {
   user: UserStats | null;
   isLoading: boolean;
+
   updateUserStats: (stats: Partial<UserStats>) => void;
+  updateUserProfile: (userId: string, patch: Partial<UserStats>) => void;
+
+  getUserById: (userId: string) => UserStats | null;
+
   addXP: (amount: number) => void;
   incrementStreak: () => void;
   resetStreak: () => void;
@@ -19,37 +24,85 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('protheus-user');
-    if (storedUser) {
+    const storedUsers = localStorage.getItem('protheus-users');
+    const currentUserId = localStorage.getItem('protheus-current-userId');
+
+    if (storedUsers && currentUserId) {
       try {
-        setUser(JSON.parse(storedUser));
+        const parsedUsers: Record<string, UserStats> = JSON.parse(storedUsers);
+        const loadedUser = parsedUsers[currentUserId] ?? null;
+        setUser(loadedUser);
       } catch (error) {
-        console.error('Erro ao carregar usuário:', error);
+        console.error('Erro ao carregar usuários:', error);
       }
     }
+
     setIsLoading(false);
   }, []);
 
   useEffect(() => {
-    if (user) {
-      localStorage.setItem('protheus-user', JSON.stringify(user));
-    }
+    if (!user) return;
+
+    const storedUsers = localStorage.getItem('protheus-users');
+    const parsedUsers: Record<string, UserStats> = storedUsers ? JSON.parse(storedUsers) : {};
+
+    parsedUsers[user.userId] = user;
+    localStorage.setItem('protheus-users', JSON.stringify(parsedUsers));
+    localStorage.setItem('protheus-current-userId', user.userId);
   }, [user]);
 
   const login = (username: string) => {
     const userId = `user-${Date.now()}`;
     const newUser = createInitialUserStats(userId, username);
+
+    // Salva imediatamente no store multiusuários
+    const storedUsers = localStorage.getItem('protheus-users');
+    const parsedUsers: Record<string, UserStats> = storedUsers ? JSON.parse(storedUsers) : {};
+
+    parsedUsers[userId] = newUser;
+    localStorage.setItem('protheus-users', JSON.stringify(parsedUsers));
+    localStorage.setItem('protheus-current-userId', userId);
+
     setUser(newUser);
   };
 
   const logout = () => {
+    const currentUserId = localStorage.getItem('protheus-current-userId');
     setUser(null);
-    localStorage.removeItem('protheus-user');
+    if (currentUserId) {
+      localStorage.removeItem('protheus-current-userId');
+    }
+  };
+
+  const getUserById = (userId: string) => {
+    const storedUsers = localStorage.getItem('protheus-users');
+    if (!storedUsers) return null;
+    try {
+      const parsedUsers: Record<string, UserStats> = JSON.parse(storedUsers);
+      return parsedUsers[userId] ?? null;
+    } catch {
+      return null;
+    }
   };
 
   const updateUserStats = (stats: Partial<UserStats>) => {
     if (!user) return;
     setUser({ ...user, ...stats });
+  };
+
+  const updateUserProfile = (userId: string, patch: Partial<UserStats>) => {
+    const storedUsers = localStorage.getItem('protheus-users');
+    const parsedUsers: Record<string, UserStats> = storedUsers ? JSON.parse(storedUsers) : {};
+
+    const target = parsedUsers[userId];
+    if (!target) return;
+
+    parsedUsers[userId] = { ...target, ...patch };
+    localStorage.setItem('protheus-users', JSON.stringify(parsedUsers));
+
+    if (user && user.userId === userId) {
+      setUser(parsedUsers[userId]);
+    }
   };
 
   const addXP = (amount: number) => {
@@ -106,6 +159,8 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
         user,
         isLoading,
         updateUserStats,
+        updateUserProfile,
+        getUserById,
         addXP,
         incrementStreak,
         resetStreak,

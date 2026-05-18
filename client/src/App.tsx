@@ -35,7 +35,14 @@ function Router() {
       <Route path="/quizzes" component={Quizzes} />
       <Route path="/ranking" component={Ranking} />
       <Route path="/category/:id" component={Category} />
-      <Route path="/profile" component={Profile} />
+      <Route
+        path="/users/:userId"
+        component={Profile}
+      />
+      <Route
+        path="/profile"
+        component={Profile}
+      />
       <Route path="/settings" component={Settings} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}

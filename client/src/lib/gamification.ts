@@ -7,7 +7,7 @@
 
 export interface UserStats {
   userId: string;
-  username: string;
+  username: string; // Nome de usuário editável
   level: number;
   totalXP: number;
   currentXP: number; // XP até próximo nível
@@ -21,6 +21,11 @@ export interface UserStats {
   badges: Badge[];
   lastActivityDate: string;
   joinDate: string;
+
+  // Perfil
+  bio: string;
+  avatarUrl: string | null; // DataURL
+  profileIconKey: string; // lucide-react key
 }
 
 export interface Badge {
@@ -379,5 +384,9 @@ export function createInitialUserStats(userId: string, username: string): UserSt
     badges: [],
     lastActivityDate: new Date().toISOString(),
     joinDate: new Date().toISOString(),
+
+    bio: '',
+    avatarUrl: null,
+    profileIconKey: 'User',
   };
 }

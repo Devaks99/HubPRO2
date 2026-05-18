@@ -1,8 +1,10 @@
-# TODO
+# TODO - HubPro2.0
 
-- [x] Remover ícones (emoji) das categorias: logica-programacao, linguagem-advpl, estruturas-dados, controle-fluxo, funcoes-procedimentos, banco-dados, ide-ferramentas em `client/src/lib/educationalContent.ts` (setar `icon: ''`).
-- [x] Ajustar `client/src/components/SidebarNav.tsx` para não renderizar o `<span>` quando `icon` estiver vazio.
-- [x] (Depois) Rodar build/execução para validar.
-
-
+## Planejado
+- [ ] (1) Mudar o título do site para **HubPro2.0**
+- [ ] (2) Atualizar modelo/persistência: transformar LocalStorage de 1 usuário para **multiusuário** (`protheus-users` + `protheus-current-userId`)
+- [ ] (3) Rotas: criar **rota de perfil por usuário** `/users/:userId` e manter `/profile` como atalho
+- [ ] (4) Avatar/ícones sem emojis: trocar “A” por **Avatar** (fallback com letra) e garantir clique no avatar para ir ao perfil
+- [ ] (5) Página de perfil: permitir editar **foto (upload PC -> DataURL), username, bio** e **um ícone principal selecionável** (lucide-react) apenas para o dono
+- [ ] (6) Testes manuais: login -> navegar -> editar -> recarregar -> persistir
 
