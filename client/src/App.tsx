@@ -4,14 +4,36 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { UserProvider, useUser } from "./contexts/UserContext";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Flashcards from "./pages/Flashcards";
+import Quizzes from "./pages/Quizzes";
 import Home from "./pages/Home";
 
-
 function Router() {
+  const { user } = useUser();
+
+  // Se não há usuário, mostrar login
+  if (!user) {
+    return (
+      <Switch>
+        <Route path="/" component={Login} />
+        <Route component={Login} />
+      </Switch>
+    );
+  }
+
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
+      <Route path="/" component={Dashboard} />
+      <Route path="/flashcards" component={Flashcards} />
+      <Route path="/quizzes" component={Quizzes} />
+      <Route path="/ranking" component={Home} />
+      <Route path="/category/:id" component={Home} />
+      <Route path="/profile" component={Home} />
+      <Route path="/settings" component={Home} />
+      <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
@@ -30,10 +52,12 @@ function App() {
         defaultTheme="light"
         // switchable
       >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <UserProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </UserProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
