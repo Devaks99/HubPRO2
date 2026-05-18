@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { categories, getAllFlashcards, Flashcard } from '@/lib/educationalContent';
-import { FlashcardReview, createFlashcardReview, calculateNextReview, calculateReviewStats } from '@/lib/spacedRepetition';
+import { FlashcardReview, createFlashcardReview, calculateNextReview } from '@/lib/spacedRepetition';
 import { XP_REWARDS } from '@/lib/gamification';
 import { toast } from 'sonner';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
@@ -59,15 +59,15 @@ export default function Flashcards() {
     // Carregar reviews do localStorage
     const storedReviews = localStorage.getItem(`flashcard-reviews-${user?.userId}`);
     if (storedReviews) {
-      const reviewsData = JSON.parse(storedReviews);
+      const reviewsData = JSON.parse(storedReviews) as Record<string, FlashcardReview>;
       const reviewsMap = new Map(Object.entries(reviewsData));
-      setReviews(reviewsMap);
+      setReviews(reviewsMap as Map<string, FlashcardReview>);
     } else {
       const newReviews = new Map<string, FlashcardReview>();
       cards.forEach(fc => {
         newReviews.set(fc.id, createFlashcardReview(fc.id));
       });
-      setReviews(newReviews);
+      setReviews(newReviews as Map<string, FlashcardReview>);
     }
   }, [selectedCategory, user?.userId]);
 
