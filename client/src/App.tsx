@@ -11,6 +11,7 @@ import Flashcards from "./pages/Flashcards";
 import Quizzes from "./pages/Quizzes";
 import Ranking from "./pages/Ranking";
 import Category from "./pages/Category";
+import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 
 function Router() {
@@ -33,7 +34,7 @@ function Router() {
       <Route path="/quizzes" component={Quizzes} />
       <Route path="/ranking" component={Ranking} />
       <Route path="/category/:id" component={Category} />
-      <Route path="/profile" component={Home} />
+      <Route path="/profile" component={Profile} />
       <Route path="/settings" component={Home} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
