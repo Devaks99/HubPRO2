@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Flashcards from "./pages/Flashcards";
 import Quizzes from "./pages/Quizzes";
 import Ranking from "./pages/Ranking";
+import Category from "./pages/Category";
 import Home from "./pages/Home";
 
 function Router() {
@@ -31,7 +32,7 @@ function Router() {
       <Route path="/flashcards" component={Flashcards} />
       <Route path="/quizzes" component={Quizzes} />
       <Route path="/ranking" component={Ranking} />
-      <Route path="/category/:id" component={Home} />
+      <Route path="/category/:id" component={Category} />
       <Route path="/profile" component={Home} />
       <Route path="/settings" component={Home} />
       <Route path="/404" component={NotFound} />
