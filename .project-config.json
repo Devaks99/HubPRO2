@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663138873205/N4DBKzK4re3GCJfSyNvPFA",
+    "access_key_id": "ASIAZV3A2ECZNZDNN44E",
+    "secret_access_key": "2EnyjYFKxqVOBNhZCMSWElulrmNgjmH9fJwiU6fQ",
+    "session_token": "IQoJb3JpZ2luX2VjEPr//////////wEaCXVzLWVhc3QtMSJHMEUCIQDjkrrYfXAJs/4Oa9qv9Q771HN2RU0cLL+pccc1f5mVzwIgDMEcKwlNdMSfjuD61mXXoePJ1lkTxksoSt96CgFelQUq/wMIw///////////ARAEGgw2NjUzODYwOTg4NjYiDICuqfS6OpARqAOnrCrTAzmQwgiql4p0q0OfzV0NT4jA42LhHxVrRFaeSCV2O0fwMKTYzoREIXCzBNznQlKx/MFZkfFlnku6Axdb5hKMSfi5GanQvJ4WtNXOrp8QZW5RcZFNvE7jhMYRnsTtR0Yy2T4iSbTQdssRGT02ShngLV86VFnba4QIVGKEQmvRwrDbW4XudVFT7MpazUZXkd4Ra+a4lDo2wTCI70d5BHHfKlGpPkTqQFU3NlPLgkCcXM2QNTATeU6MPUedc9ib0OeGWeuhA3QYPifS0VtLPdBSPJevRRuzRetITuqZwGBrJLZIGj05HSQWUFhiTNQ1n53I/3XwYHr/efaHUZJ0abUJMVEZU+xiR1lZ+5lUC3c8yvYWYB6m20/SqJeeZXMVffYhL9yiIFr/gC5BbIZfyWmDOgm4SIri+63P1JbX6qdavUzmhXWeq7UoI7PwiwOcPwb5h5iME+xUZfeeZdhcn3HomMxoZBg/47CUvZJ/Fpp0iMgPTHZUz3HPsCAHWr8lOo9tjJY6FVqtcKfF9ZlCPbPdCna77Eg513+O8gQ3WY9WZe2wW5tQ85wX9T7czzfjrjzzPlQJnxNEUVzUgknGxPcwZ1w9RhrIbo9zrzYVfB7EutUCTwPFMKWbrdAGOp0Bp9Ch3MNebKxVzXO+GN+eXqQ2EjiSiTcl68PaPyseCeFTeka7k5yM5Jd8Msj+TCRz/8oUku2UQLivSu12Ln2bM/rKI86S4jQx1xOt48NpdGXB4MisVEiSMMs/eC16hB09dtJfGPJudODnDdvQBrjEMMpCc3byJwDkFQiSYEPZekguyWjVTmBTtgRTUCgi6OVW1AUlze+7vHwkUOOy9w==",
+    "expiration": "2026-05-19T05:34:29.000Z"
+  },
+  "name": "protheus-master",
+  "path": "/home/ubuntu/protheus-master",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "UZRsjbQy8ZWbfY747agJbG",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "kekWixwgnV8ctCjrNuw43H",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "ana karla",
+    "OWNER_OPEN_ID": "LhwxYRsgY3QWYbNbm6ZCxp",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "0b798ecf-7ad2-4ccd-b904-86795750cf3b",
+    "VITE_APP_ID": "N4DBKzK4re3GCJfSyNvPFA",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "Protheus Master - Plataforma de Estudos",
+    "VITE_FRONTEND_FORGE_API_KEY": "YLFKp36SnTi3mxx4Jw2rnw",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
