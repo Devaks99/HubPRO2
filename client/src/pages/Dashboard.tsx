@@ -118,9 +118,10 @@ export default function Dashboard() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card
-            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full"
+            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full hover:bg-accent/5"
             onClick={() => (window.location.href = '/flashcards')}
           >
+
             <div className="text-4xl mb-3">📇</div>
             <h3 className="font-semibold text-foreground mb-1">Flashcards</h3>
             <p className="text-sm text-muted-foreground mb-4">
@@ -132,9 +133,10 @@ export default function Dashboard() {
           </Card>
 
           <Card
-            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full"
+            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full hover:bg-accent/5"
             onClick={() => (window.location.href = '/quizzes')}
           >
+
             <div className="text-4xl mb-3">📝</div>
             <h3 className="font-semibold text-foreground mb-1">Quizzes</h3>
             <p className="text-sm text-muted-foreground mb-4">
@@ -146,9 +148,10 @@ export default function Dashboard() {
           </Card>
 
           <Card
-            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full"
+            className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full hover:bg-accent/5"
             onClick={() => (window.location.href = '/ranking')}
           >
+
             <div className="text-4xl mb-3">🏆</div>
             <h3 className="font-semibold text-foreground mb-1">Ranking</h3>
             <p className="text-sm text-muted-foreground mb-4">

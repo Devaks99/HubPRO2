@@ -108,11 +108,13 @@ function NavLink({ href, isActive, icon, label, onNavigate }: NavLinkProps) {
         'w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 border-0 bg-transparent cursor-pointer',
         isActive
           ? 'bg-sidebar-primary text-sidebar-primary-foreground shadow-sm'
-          : 'text-sidebar-foreground hover:bg-sidebar-accent/10 hover:text-sidebar-primary',
+          : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
+
       )}
     >
-      <span className="text-lg">{icon}</span>
+      {icon ? <span className="text-lg">{icon}</span> : null}
       <span>{label}</span>
+
     </button>
   );
 }

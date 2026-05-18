@@ -51,7 +51,8 @@ export const categories: Category[] = [
     id: 'logica-programacao',
     name: 'Lógica de Programação',
     description: 'Fundamentos de algoritmos, fluxogramas e pseudocódigo',
-    icon: '🧠',
+    icon: '',
+
     color: '#3B82F6',
     flashcardCount: 45,
     quizCount: 12,
@@ -61,7 +62,8 @@ export const categories: Category[] = [
     id: 'linguagem-advpl',
     name: 'Linguagem ADVPL',
     description: 'Sintaxe, operadores, variáveis e macrosubstituição',
-    icon: '⚙️',
+    icon: '',
+
     color: '#10B981',
     flashcardCount: 68,
     quizCount: 18,
@@ -71,7 +73,8 @@ export const categories: Category[] = [
     id: 'estruturas-dados',
     name: 'Estruturas de Dados',
     description: 'Matrizes, arrays e organização de dados',
-    icon: '📦',
+    icon: '',
+
     color: '#F59E0B',
     flashcardCount: 52,
     quizCount: 14,
@@ -81,7 +84,8 @@ export const categories: Category[] = [
     id: 'controle-fluxo',
     name: 'Controle de Fluxo',
     description: 'Condições, loops e estruturas de decisão',
-    icon: '🔄',
+    icon: '',
+
     color: '#8B5CF6',
     flashcardCount: 58,
     quizCount: 16,
@@ -91,7 +95,8 @@ export const categories: Category[] = [
     id: 'funcoes-procedimentos',
     name: 'Funções e Procedimentos',
     description: 'Criação e utilização de funções em ADVPL',
-    icon: '🔧',
+    icon: '',
+
     color: '#EC4899',
     flashcardCount: 42,
     quizCount: 11,
@@ -101,7 +106,8 @@ export const categories: Category[] = [
     id: 'banco-dados',
     name: 'Banco de Dados',
     description: 'Operações com tabelas, queries e relacionamentos',
-    icon: '🗄️',
+    icon: '',
+
     color: '#06B6D4',
     flashcardCount: 38,
     quizCount: 10,
@@ -111,7 +117,8 @@ export const categories: Category[] = [
     id: 'ide-ferramentas',
     name: 'IDE e Ferramentas',
     description: 'Ambiente de desenvolvimento, wizard e configurador',
-    icon: '🛠️',
+    icon: '',
+
     color: '#14B8A6',
     flashcardCount: 55,
     quizCount: 15,
