@@ -7,7 +7,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { getLevelConfig, BADGES } from '@/lib/gamification';
+import { getLevelConfig } from '@/lib/gamification';
 import { Trophy, Medal, Star, Flame } from 'lucide-react';
 
 interface RankingEntry {
