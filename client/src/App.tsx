@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Flashcards from "./pages/Flashcards";
 import Quizzes from "./pages/Quizzes";
+import Ranking from "./pages/Ranking";
 import Home from "./pages/Home";
 
 function Router() {
@@ -29,7 +30,7 @@ function Router() {
       <Route path="/" component={Dashboard} />
       <Route path="/flashcards" component={Flashcards} />
       <Route path="/quizzes" component={Quizzes} />
-      <Route path="/ranking" component={Home} />
+      <Route path="/ranking" component={Ranking} />
       <Route path="/category/:id" component={Home} />
       <Route path="/profile" component={Home} />
       <Route path="/settings" component={Home} />
