@@ -12,6 +12,7 @@ import Quizzes from "./pages/Quizzes";
 import Ranking from "./pages/Ranking";
 import Category from "./pages/Category";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 import Home from "./pages/Home";
 
 function Router() {
@@ -35,7 +36,7 @@ function Router() {
       <Route path="/ranking" component={Ranking} />
       <Route path="/category/:id" component={Category} />
       <Route path="/profile" component={Profile} />
-      <Route path="/settings" component={Home} />
+      <Route path="/settings" component={Settings} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
